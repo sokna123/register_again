@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color : rgb(230, 237, 241);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #container{
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            background-color: white;
+            border-radius: 20px;
+            width: 90%;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+           
+        }
+#head {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+        #form_group{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        #group{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        
+        }
+        label{
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+        input{
+            width: 400px;
+            height: 40px;
+            border-radius: 10px;
+            border: solid 1px gray;
+            background-color : rgb(230, 237, 241);
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(72, 72, 72);
+        }
+        select{
+                width: 400px;
+            height: 40px;
+            border-radius: 10px;
+            border: solid 1px gray;
+            background-color : rgb(230, 237, 241);
+            padding: 10px;
+             font-family: 'Courier New', Courier, monospace;
+             color: rgb(72, 72, 72);
+        }
+        button{
+            padding: 10px 30px;
+           background:linear-gradient(45deg,#0459a3,#0399a0);
+            border-radius: 10px;
+            border: none;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            margin-top: 20px;
+            margin-left: 1100px;
+
+        }
+   
+.table-wrap{
+    width:100%;
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+.table-wrap table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:1300px;
+}
+
+.table-wrap th,
+.table-wrap td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+    white-space:nowrap;
+}
+
+.table-wrap thead{
+    background:linear-gradient(45deg,#4facfe,#01d0db);
+    color:white;
+}
+.table-wrap th:last-child,
+.table-wrap td:last-child{
+    min-width: 180px;
+}
+/* Action Buttons */
+.btn-edit,
+.btn-delete{
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.btn-edit{
+    background: green;
+}
+
+.btn-delete{
+    background: red;
+}
+.background{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 200px;
+}
+    #pic1{
+      
+        width: 100px;
+    }
+    
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+    #container {
+        width: 95%;
+        padding: 25px;
+    }
+
+    #form_group {
+        width: 100%;
+        gap: 15px;
+    }
+
+    #group {
+        flex: 1 1 45%;
+        min-width: 0;
+    }
+
+    input,
+    select {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    button {
+        margin-left: 0;
+    }
+
+    .background {
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    #head {
+        font-size: 32px;
+    }
+
+    #pic1 {
+        max-width: 80px;
+        height: auto;
+    }
+}
+
+/* ===== Phone ===== */
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+        padding: 15px 0;
+    }
+
+    #container {
+        width: 95%;
+        padding: 18px 12px;
+        border-radius: 15px;
+    }
+
+    #head {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    #form_group {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #group {
+        width: 100%;
+    }
+
+    input,
+    select {
+        width: 100%;
+        height: 42px;
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        margin: 15px 0 0;
+        padding: 12px;
+    }
+
+    .background {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #pic1 {
+        width: 65px;
+        height: auto;
+    }
+
+    .table-wrap {
+        margin-top: 15px;
+    }
+
+    .table-wrap table {
+        min-width: 1300px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="background">
+               <img src="sticker_1.png" alt="" id="pic1">
+        <h1 id="head">User Information</h1>
+        <img src="sticker_4.png" alt="" id="pic1">
+        </div>
+      
+       
+        <div id="form_group">
+            <div id="group">
+                <label for="" id="text">Khmer Name<small style="color: red;">*</small></label>
+                <input type="text" id="khmerName" placeholder="Enter Khmer name" required>
+               
+            </div>
+            <div id="group">
+                <label for="" id="text">English Name<small style="color: red;">*</small> </label>
+                <input type="text" id="englishName" placeholder="Enter English name" required>
+            </div>
+            <div id="group">
+                <label for="" id="text">Age<small style="color: red;">*</small> </label>
+                <input type="number" id="age" placeholder="Enter age" required readonly>
+            </div>
+             <div id="group">
+                <label for="" id="text">Gender<small style="color: red;">*</small> </label>
+                <select name="Select gender" id="choose" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+
+                </select>
+            </div>
+             <div id="group">
+                <label for="" id="text">Date of Birth<small style="color: red;">*</small> </label>
+                <input type="date" id="date" required style="font-family: 'Courier New', Courier, monospace;      color: rgb(72, 72, 72);" >
+            </div>
+                <div id="group">
+                <label for="" id="text">Phone Number<small style="color: red;">*</small> </label>
+                <input type="text" id="phone" placeholder="Enter phone number" required maxlength="10">
+            </div>
+             <div id="group">
+                <label for="" id="text">Email<small style="color: red;">*</small> </label>
+                <input type="email" id="email" placeholder="Enter email address" required style="width: 610px;">
+            </div>
+              <div id="group">
+                <label for="" id="text">Address<small style="color: red;">*</small> </label>
+                <input type="text" id="address" placeholder="Enter address" style="width: 610px;" required>
+            </div>
+        </div>
+
+        <button onclick="btn()" id="addBtn"><i class="fa-solid fa-circle-plus" id="add"></i>    Add</button>
+        
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Khmer name</th>
+                                <th>English name</th>
+                                <th>Gender</th>
+                                <th>Age</th>
+                                <th>Date of birth</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Actions</th>
+
+                        
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                        
+                    </table>
+                </div>
+    </div>
+    <script>
+       let users = JSON.parse(localStorage.getItem("users")) || [];
+let editIndex = -1;
+showData();
+
+
+// Add Button
+function btn() {
+
+    let khmerName = document.getElementById("khmerName").value;
+    let englishName = document.getElementById("englishName").value;
+    let age = document.getElementById("age").value;
+    let gender = document.getElementById("choose").value;
+    let dob = document.getElementById("date").value;
+    let phone = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailPattern.test(email)) {
+    Swal.fire({
+        icon: "error",
+        title: "Invalid Email",
+        text: "Please enter a valid email! Example: sokna@gmail.com",
+        confirmButtonColor: "#4f46e5"
+    });
+    return;
+}
+    let address = document.getElementById("address").value;
+
+    if (
+        khmerName === "" ||
+        englishName === "" ||
+        age === "" ||
+        gender === "" ||
+        dob === "" ||
+        phone === "" ||
+        email === "" ||
+        address === ""
+    ) {
+    Swal.fire({
+    icon: "warning",
+    title: "Missing Information!",
+    text: "Please fill all information!",
+    confirmButtonColor: "#4f46e5"
+});
+return;
+    }
+    if (users.some((user, index) =>
+    user.email.trim().toLowerCase() === email.trim().toLowerCase()
+    && index !== editIndex
+)) {
+    Swal.fire("Email Exists!", "This email is already registered.", "error");
+    return;
+}
+
+if (users.some((user, index) =>
+    user.phone.trim() === phone.trim()
+    && index !== editIndex
+)) {
+    Swal.fire("Phone Exists!", "This phone number is already registered.", "error");
+    return;
+}
+
+    let user = {
+        khmerName,
+        englishName,
+        age,
+        gender,
+        dob,
+        phone,
+        email,
+        address
+    };
+
+    // EDIT
+    if(editIndex != -1){
+
+    users[editIndex] = user;
+
+    editIndex = -1;
+
+    // Change Save -> Add
+    document.getElementById("addBtn").innerHTML = "Add";
+
+}else{
+
+    users.push(user);
+}
+if (!checkAge()) {
+    return;
+}
+
+localStorage.setItem("users", JSON.stringify(users));
+
+clearInput();
+showData();
+
+}
+
+// Show Table Data
+function showData() {
+
+    let tableBody = document.getElementById("tableBody");
+
+    tableBody.innerHTML = "";
+
+    for (let i = 0; i < users.length; i++) {
+
+        tableBody.innerHTML += `
+        <tr>
+            <td>${i + 1}</td>
+            <td>${users[i].khmerName}</td>
+            <td>${users[i].englishName}</td>
+            <td>${users[i].gender}</td>
+            <td>${users[i].age}</td>
+            <td>${users[i].dob}</td>
+            <td>${users[i].phone}</td>
+            <td>${users[i].email}</td>
+            <td>${users[i].address}</td>
+            <td>
+                <button class="btn-edit" onclick="editUser(${i})"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                <button class="btn-delete" onclick="deleteUser(${i})"> <i class="fa-solid fa-trash"></i> Delete</button>
+            </td>
+        </tr>
+        `;
+    }
+}
+
+// Edit
+function editUser(index){
+   let result =  Swal.fire({
+    icon: "question",
+    title: "Are you sure?",
+    text: "Do you want to edit this user?",
+    showCancelButton: true,
+    confirmButtonText: "Yes, Edit",
+    cancelButtonText: "Cancel",
+    confirmButtonColor: "#4f46e5",
+    cancelButtonColor: "#6b7280"
+});
+
+if (result) {
+    // Your edit code here
+      editIndex = index;
+
+    document.getElementById("khmerName").value = users[index].khmerName;
+    document.getElementById("englishName").value = users[index].englishName;
+    document.getElementById("age").value = users[index].age;
+    document.getElementById("choose").value = users[index].gender;
+    document.getElementById("date").value = users[index].dob;
+    document.getElementById("phone").value = users[index].phone;
+    document.getElementById("email").value = users[index].email;
+    document.getElementById("address").value = users[index].address;
+
+    // Change Add -> Save
+    // document.getElementById("addBtn").innerHTML = "Save";
+    addBtn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Save';
+}
+    
+   
+}
+
+// Delete
+function deleteUser(index) {
+    Swal.fire({
+        icon: "warning",
+        title: "Are you sure?",
+        text: "Do you want to delete this user?",
+        showCancelButton: true,
+        confirmButtonText: "Yes, Delete",
+        cancelButtonText: "Cancel",
+        confirmButtonColor: "#dc2626",
+        cancelButtonColor: "#6b7280"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            users.splice(index, 1);
+
+            localStorage.setItem("users", JSON.stringify(users));
+
+            showData();
+
+            Swal.fire({
+                icon: "success",
+                title: "Deleted!",
+                text: "User deleted successfully!",
+                confirmButtonColor: "#4f46e5"
+            });
+        }
+    });
+}
+
+// Clear Inputs
+function clearInput() {
+
+    document.getElementById("khmerName").value = "";
+    document.getElementById("englishName").value = "";
+    document.getElementById("age").value = "";
+    document.getElementById("choose").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("address").value = "";
+}
+
+
+
+
+document.getElementById("khmerName").addEventListener("input", function () {
+    let oldValue = this.value;
+
+    this.value = this.value.replace(/[^\u1780-\u17FF\s]/g, "");
+
+    if (oldValue !== this.value) {
+        Swal.fire({
+            icon: "warning",
+            title: "Khmer Name Only",
+            text: "Please input Khmer letters only!",
+            confirmButtonColor: "#4f46e5"
+        });
+    }
+});
+
+document.getElementById("englishName").addEventListener("input", function () {
+    let oldValue = this.value;
+
+    let newValue = oldValue.replace(/[^a-zA-Z\s]/g, "");
+
+    if (oldValue !== newValue) {
+        this.value = newValue;
+
+        Swal.fire({
+            icon: "warning",
+            title: "English Name Only",
+            text: "Please input English letters only!",
+            confirmButtonColor: "#4f46e5"
+        });
+    }
+});
+
+function checkAge() {
+    let dob = document.getElementById("date").value;
+
+    if (!dob) {
+        Swal.fire("Warning!", "Please enter your date of birth!", "warning");
+        return false;
+    }
+
+    let birthDate = new Date(dob);
+    let today = new Date();
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+
+    if (
+        today.getMonth() < birthDate.getMonth() ||
+        (today.getMonth() === birthDate.getMonth() &&
+         today.getDate() < birthDate.getDate())
+    ) {
+        age--;
+    }
+
+    if (age < 18) {
+        Swal.fire({
+            icon: "error",
+            title: "Registration Denied",
+            text: "You must be at least 18 years old to register!",
+            confirmButtonColor: "#4f46e5"
+        });
+
+        return false;
+    }
+
+    return true;
+}
+function calculateAge() {
+    let dob = document.getElementById("date").value;
+
+    if (!dob) {
+        document.getElementById("age").value = "";
+        return;
+    }
+
+    let birthDate = new Date(dob);
+    let today = new Date();
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+
+    if (
+        today.getMonth() < birthDate.getMonth() ||
+        (today.getMonth() === birthDate.getMonth() &&
+         today.getDate() < birthDate.getDate())
+    ) {
+        age--;
+    }
+
+    document.getElementById("age").value = age;
+}
+
+document.getElementById("date").addEventListener("change", calculateAge);
+
+    </script>
+</body>
+</html>
